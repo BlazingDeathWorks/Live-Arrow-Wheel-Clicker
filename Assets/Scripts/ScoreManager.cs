@@ -56,8 +56,10 @@ internal class ScoreManager : MonoBehaviour
     {
         PlayerPrefs.SetInt(HIGH_SCORE, highScore);
         Disk.Instance.WipeArrows();
-        if (!lose) return;
-        score = 0;
+        if (lose)
+        {
+            score = 0;
+        }
         combo = 1;
         UpdateText();
     }

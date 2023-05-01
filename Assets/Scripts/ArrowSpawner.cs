@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 internal class ArrowSpawner : MonoBehaviour
 {
@@ -18,12 +19,6 @@ internal class ArrowSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            currentArrow.Release();
-            currentArrow = Instantiate(arrow, currentShootPoint.SpawnPos.position, Quaternion.Euler(0, 0, currentShootPoint.Rotation));
-        }
-
         for (int i = 0; i < shootPoints.Length; i++)
         {
             if (Input.GetKeyDown(shootPoints[i].Input))
@@ -34,6 +29,12 @@ internal class ArrowSpawner : MonoBehaviour
                 currentArrow.transform.localEulerAngles = new Vector3(0, 0, currentShootPoint.Rotation);
             }
         }
+    }
+
+    public void OnClick()
+    {
+        currentArrow.Release();
+        currentArrow = Instantiate(arrow, currentShootPoint.SpawnPos.position, Quaternion.Euler(0, 0, currentShootPoint.Rotation));
     }
 }
 

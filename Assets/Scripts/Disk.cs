@@ -28,6 +28,7 @@ internal class Disk : MonoBehaviour
     {
         for (int i = 0; i < arrows.Count; i++)
         {
+            if (arrows[i] == null) continue;
             Destroy(arrows[i].gameObject);
         }
         arrows.Clear();
