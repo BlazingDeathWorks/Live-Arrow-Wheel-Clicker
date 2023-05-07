@@ -34,6 +34,7 @@ internal class Arrow : MonoBehaviour
         if (collision.gameObject.CompareTag(ARROW))
         {
             Destroy(gameObject);
+            Disk.Instance.WipeArrows();
             ScoreManager.Instance.Reset();
         }
     }
