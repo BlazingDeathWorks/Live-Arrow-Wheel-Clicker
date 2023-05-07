@@ -16,7 +16,7 @@ internal class Arrow : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (!canRelease) return;
         rb.velocity = transform.up * speed;
