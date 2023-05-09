@@ -55,6 +55,7 @@ internal class ScoreManager : MonoBehaviour
     public void Reset(bool lose = true)
     {
         PlayerPrefs.SetInt(HIGH_SCORE, highScore);
+        Disk.Instance.WipeArrows();
         if (lose)
         {
             score = 0;
